@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/alexm24/cache-img/internal/app"
 
 func main()  {
-	fmt.Println("start")
+	app.Run()
 }
