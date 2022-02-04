@@ -1,0 +1,11 @@
+http_server:
+  port: 8000
+  maxHeaderBytes: 1
+  readTimeout: 10s
+  writeTimeout: 10s
+  base_path: "ci/v1"
+
+
+fileStorage:
+  url: example.com
+  bucket: image
