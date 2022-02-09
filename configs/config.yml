@@ -1,11 +1,19 @@
-http_server:
-  port: 8000
+http_server_config:
+  port: "8000"
   maxHeaderBytes: 1
   readTimeout: 10s
   writeTimeout: 10s
   base_path: "ci/v1"
 
+db_config:
+  host: "localhost"
+  port: "5432"
+  username: "postgres"
+  password: "qwerty"
+  db_name: "postgres"
+  ssl_mode: "disable"
 
-fileStorage:
-  url: example.com
-  bucket: image
+
+file_storage:
+  url: "example.com"
+  bucket: "image"
