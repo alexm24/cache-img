@@ -2,6 +2,7 @@ package repository
 
 import (
 	"github.com/alexm24/cache-img/internal/models"
+	"github.com/alexm24/cache-img/internal/repository/postgres"
 
 	"github.com/jmoiron/sqlx"
 )
@@ -16,5 +17,7 @@ type Repository struct {
 }
 
 func NewRepository(db *sqlx.DB) *Repository {
-	return &Repository{}
+	return &Repository{
+		Authorization: postgres.NewAuth(db),
+	}
 }

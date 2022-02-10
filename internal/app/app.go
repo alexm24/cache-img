@@ -46,12 +46,12 @@ func Run(configPath string) {
 	srv := new(server.Server)
 
 	go func() {
-		log.Println("http server start")
-
 		cfgHTTP := models.HTTPServerConfig{
 			BasePath: cfg.HTTPServerConfig.BasePath,
 			Port:     cfg.HTTPServerConfig.Port,
 		}
+
+		log.Printf("start http server port: %s", cfgHTTP.Port)
 
 		err = srv.Run(cfgHTTP, habdlers.InitRoutes(cfgHTTP.BasePath))
 		if err != nil {

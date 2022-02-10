@@ -31,5 +31,7 @@ func (h *Handler) InitRoutes(basePath string) http.Handler {
 
 func (h *Handler) rHandler(r chi.Router) http.Handler {
 	r.Get("/avatar/{code}", h.getAvatar)
+	//r.Post("/auth/sing-up", h.SingUp)
+	//r.Post("/auth/sing-in", h.SingIn)
 	return r
 }
