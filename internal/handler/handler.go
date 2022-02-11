@@ -23,15 +23,10 @@ func (h *Handler) InitRoutes(basePath string) http.Handler {
 	router.Use(middleware.Logger)
 	router.Route(path.Join("/", basePath), func(r chi.Router) {
 		r.Use(middleware.NoCache)
-		r.Mount("/", h.rHandler(r))
+		r.Get("/avatar/{code}", h.getAvatar)
+		r.Post("/auth/sing-up", h.SingUp)
+		r.Post("/auth/sing-in", h.SingIn)
 	})
 
 	return router
-}
-
-func (h *Handler) rHandler(r chi.Router) http.Handler {
-	r.Get("/avatar/{code}", h.getAvatar)
-	//r.Post("/auth/sing-up", h.SingUp)
-	//r.Post("/auth/sing-in", h.SingIn)
-	return r
 }
